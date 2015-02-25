@@ -169,8 +169,7 @@ $.fn.wookmark = function(options) {
       this.wookmarkResizeMethod = $.proxy(this.wookmarkOnResize, this);
     }
     $(window).resize(this.wookmarkResizeMethod);
-  };
-  
+  }
   /**
    * Clear event listeners and time outs.
    */
@@ -190,3 +189,7 @@ $.fn.wookmark = function(options) {
   // Display items (if hidden).
   this.show();
 };
+
+
+
+
