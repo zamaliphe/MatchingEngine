@@ -40,4 +40,11 @@ CakePlugin::routes();
  * Load the CakePHP default routes. Only remove this if you do not want to use
  * the built-in default routes.
  */
+
+
+Router::connect('/admin', array('controller' => 'Admindashboard', 'action' => 'index', "admin" => true));
+
+
 require CAKE . 'Config' . DS . 'routes.php';
+
+
