@@ -1,63 +1,46 @@
-<div class="settings index">
-	<h2><?php echo __('Settings'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
-		<thead>
-		<tr>
-							<th><?php echo $this->Paginator->sort('id'); ?></th>
-							<th><?php echo $this->Paginator->sort('type'); ?></th>
-							<th><?php echo $this->Paginator->sort('name'); ?></th>
-							<th><?php echo $this->Paginator->sort('value'); ?></th>
-							<th><?php echo $this->Paginator->sort('label'); ?></th>
-							<th><?php echo $this->Paginator->sort('dsc'); ?></th>
-							<th><?php echo $this->Paginator->sort('order'); ?></th>
-							<th><?php echo $this->Paginator->sort('hidden'); ?></th>
-							<th><?php echo $this->Paginator->sort('options'); ?></th>
-							<th><?php echo $this->Paginator->sort('created'); ?></th>
-							<th><?php echo $this->Paginator->sort('updated'); ?></th>
-						<th class="actions"><?php echo __('Actions'); ?></th>
-		</tr>
-		</thead>
-		<tbody>
-		<?php foreach ($settings as $setting): ?>
-	<tr>
-		<td><?php echo h($setting['Setting']['id']); ?>&nbsp;</td>
-		<td><?php echo h($setting['Setting']['type']); ?>&nbsp;</td>
-		<td><?php echo h($setting['Setting']['name']); ?>&nbsp;</td>
-		<td><?php echo h($setting['Setting']['value']); ?>&nbsp;</td>
-		<td><?php echo h($setting['Setting']['label']); ?>&nbsp;</td>
-		<td><?php echo h($setting['Setting']['dsc']); ?>&nbsp;</td>
-		<td><?php echo h($setting['Setting']['order']); ?>&nbsp;</td>
-		<td><?php echo h($setting['Setting']['hidden']); ?>&nbsp;</td>
-		<td><?php echo h($setting['Setting']['options']); ?>&nbsp;</td>
-		<td><?php echo h($setting['Setting']['created']); ?>&nbsp;</td>
-		<td><?php echo h($setting['Setting']['updated']); ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $setting['Setting']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $setting['Setting']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $setting['Setting']['id']), array(), __('Are you sure you want to delete # %s?', $setting['Setting']['id'])); ?>
-		</td>
-	</tr>
-<?php endforeach; ?>
-		</tbody>
-	</table>
-	<p>
-		<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-	));
-	?>	</p>
-
-	<div class="paging">
-		<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-	?>
-	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Setting'), array('action' => 'add')); ?></li>
-			</ul>
+<?php echo $this->Form->create('Setting', array('action' => 'index')); ?>
+<div class="widget chartWrapper" style="width: 80%;margin-left: auto;margin-right: auto;">
+    <div class="title">
+        <?php echo $html->image('icons/dark/stats.png', array("class" => 'titleIcon')); ?>
+        <h6><?php __('Settings'); ?></h6>
+    </div>
+    <div class="body">
+        <table width="100%" cellpadding="0" cellspacing="0" class="sTable" >
+            <tbody>   
+                <?php
+                $i = 0;
+                $count = 0;
+                foreach ($settings as $setting):
+                    $class = null;
+                    if ($i++ % 2 == 0) {
+                        $class = ' class="altrow"';
+                    }
+                    $sett = $setting['Setting'];
+                    $default_options  = array('value' => $sett['value'],'type'=>$sett['type'],'label' => false);
+                    $options = (!empty($sett['options'])) ? json_decode($sett['options'],true) : array();
+                    $options = array_merge($options,$default_options);
+                    ?>
+                    <tr<?php echo $class; ?>>
+                        <?php echo $this->Form->input('Setting.' . $count . '.id', array('type' => 'hidden', 'value' => $sett['id'])); ?>
+                        <div class="users form">
+                            <fieldset>
+                                <div class="formRow">
+                                    <label for="name"><?php echo $sett['label']; ?></label>
+                                    <div class="formRight">
+                                        <?php echo $this->Form->input('Setting.' . $count . '.value' , $options ); ?> 
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </tr>
+                <?php $count++; ?>
+            <?php endforeach; ?>
+            </tbody>     
+        </table>
+        <?php echo $this->element('admin/forms/form_submit'); ?>
+        <br/>
+        <br/>
+    </div>
 </div>

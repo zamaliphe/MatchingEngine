@@ -1,40 +1,41 @@
 <?php
-	App::uses('Setting', 'Model');
+App::uses('Setting', 'Model');
 
 /**
-* Setting Test Case
-*
-*/
-	class SettingTest extends CakeTestCase {
+ * Setting Test Case
+ */
+class SettingTest extends CakeTestCase
+{
 
-	/**
-	* Fixtures
-	*
-	* @var array
-	*/
-	public $fixtures = array(
-	'app.setting'
-	);
+    /**
+     * Fixtures
+     *
+     * @var array
+     */
+    public $fixtures = array(
+        'app.setting'
+    );
 
-	/**
-	* setUp method
-	*
-	* @return void
-	*/
-	public function setUp() {
-	parent::setUp();
-		$this->Setting = ClassRegistry::init('Setting');
-		}
+    /**
+     * setUp method
+     *
+     * @return void
+     */
+    public function setUp()
+    {
+        parent::setUp();
+        $this->Setting = ClassRegistry::init('Setting');
+    }
 
-	/**
-	* tearDown method
-	*
-	* @return void
-	*/
-	public function tearDown() {
-	unset($this->Setting);
-
-	parent::tearDown();
-	}
-
+    /**
+     * tearDown method
+     *
+     * @return void
+     */
+    public function tearDown()
+    {
+        unset($this->Setting);
+        
+        parent::tearDown();
+    }
 }

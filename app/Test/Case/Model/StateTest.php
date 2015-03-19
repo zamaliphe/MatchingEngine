@@ -1,41 +1,42 @@
 <?php
-	App::uses('State', 'Model');
+App::uses('State', 'Model');
 
 /**
-* State Test Case
-*
-*/
-	class StateTest extends CakeTestCase {
+ * State Test Case
+ */
+class StateTest extends CakeTestCase
+{
 
-	/**
-	* Fixtures
-	*
-	* @var array
-	*/
-	public $fixtures = array(
-	'app.state',
-		'app.user'
-	);
+    /**
+     * Fixtures
+     *
+     * @var array
+     */
+    public $fixtures = array(
+        'app.state',
+        'app.user'
+    );
 
-	/**
-	* setUp method
-	*
-	* @return void
-	*/
-	public function setUp() {
-	parent::setUp();
-		$this->State = ClassRegistry::init('State');
-		}
+    /**
+     * setUp method
+     *
+     * @return void
+     */
+    public function setUp()
+    {
+        parent::setUp();
+        $this->State = ClassRegistry::init('State');
+    }
 
-	/**
-	* tearDown method
-	*
-	* @return void
-	*/
-	public function tearDown() {
-	unset($this->State);
-
-	parent::tearDown();
-	}
-
+    /**
+     * tearDown method
+     *
+     * @return void
+     */
+    public function tearDown()
+    {
+        unset($this->State);
+        
+        parent::tearDown();
+    }
 }

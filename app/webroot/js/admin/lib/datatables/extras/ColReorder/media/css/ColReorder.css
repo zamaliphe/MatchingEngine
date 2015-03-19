@@ -1,7 +1,6 @@
 /*
  * Namespace DTCR - "DataTables ColReorder" plug-in
  */
-
 table.DTCR_clonedTable {
 	background-color: white;
 	z-index: 202;

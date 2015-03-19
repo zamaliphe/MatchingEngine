@@ -26,22 +26,20 @@
  *     ../images/ - relative to this CSS file.
  */
 
-
 /*
  * jQuery UI specific styling
  */
-
 .paging_two_button .ui-button {
 	float: left;
-	cursor: pointer;
-	* cursor: hand;
+	cursor: pointer; *
+	cursor: hand;
 }
 
 .paging_full_numbers .ui-button {
 	padding: 2px 6px;
 	margin: 0;
-	cursor: pointer;
-	* cursor: hand;
+	cursor: pointer; *
+	cursor: hand;
 	color: #333 !important;
 }
 
@@ -67,14 +65,13 @@
 
 table.display thead th {
 	padding: 3px 0px 3px 10px;
-	cursor: pointer;
-	* cursor: hand;
+	cursor: pointer; *
+	cursor: hand;
 }
 
 div.dataTables_wrapper .ui-widget-header {
 	font-weight: normal;
 }
-
 
 /*
  * Sort arrow icon positioning
@@ -92,9 +89,6 @@ table.display thead th div.DataTables_sort_wrapper span {
 	right: 0;
 }
 
-
-
-
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *
  * Everything below this line is the same as demo_table.css. This file is
@@ -102,12 +96,9 @@ table.display thead th div.DataTables_sort_wrapper span {
  *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-
-
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * DataTables features
  */
-
 .dataTables_wrapper {
 	position: relative;
 	clear: both;
@@ -148,7 +139,8 @@ table.display thead th div.DataTables_sort_wrapper span {
 }
 
 /* Pagination nested */
-.paginate_disabled_previous, .paginate_enabled_previous, .paginate_disabled_next, .paginate_enabled_next {
+.paginate_disabled_previous, .paginate_enabled_previous,
+	.paginate_disabled_next, .paginate_enabled_next {
 	height: 19px;
 	width: 19px;
 	margin-left: 3px;
@@ -170,8 +162,6 @@ table.display thead th div.DataTables_sort_wrapper span {
 .paginate_enabled_next {
 	background-image: url('../images/forward_enabled.jpg');
 }
-
-
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * DataTables display
@@ -201,12 +191,9 @@ table.display td.center {
 	text-align: center;
 }
 
-
-
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * DataTables sorting
  */
-
 .sorting_asc {
 	background: url('../images/sort_asc.png') no-repeat center right;
 }
@@ -220,15 +207,14 @@ table.display td.center {
 }
 
 .sorting_asc_disabled {
-	background: url('../images/sort_asc_disabled.png') no-repeat center right;
+	background: url('../images/sort_asc_disabled.png') no-repeat center
+		right;
 }
 
 .sorting_desc_disabled {
-	background: url('../images/sort_desc_disabled.png') no-repeat center right;
+	background: url('../images/sort_desc_disabled.png') no-repeat center
+		right;
 }
-
-
-
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * DataTables row classes
@@ -240,9 +226,6 @@ table.display tr.odd.gradeA {
 table.display tr.even.gradeA {
 	background-color: #eeffee;
 }
-
-
-
 
 table.display tr.odd.gradeA {
 	background-color: #ddffdd;
@@ -276,7 +259,6 @@ table.display tr.even.gradeU {
 	background-color: #eee;
 }
 
-
 tr.odd {
 	background-color: #E2E4FF;
 }
@@ -284,10 +266,6 @@ tr.odd {
 tr.even {
 	background-color: white;
 }
-
-
-
-
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Misc
@@ -339,13 +317,12 @@ td.details {
 	border: 2px solid #A19B9E;
 }
 
-
 .example_alt_pagination div.dataTables_info {
 	width: 40%;
 }
 
-.paging_full_numbers a.paginate_button,
- 	.paging_full_numbers a.paginate_active {
+.paging_full_numbers a.paginate_button, .paging_full_numbers a.paginate_active
+	{
 	border: 1px solid #aaa;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -377,7 +354,6 @@ table.display tr.odd.row_selected td {
 	background-color: #9FAFD1;
 }
 
-
 /*
  * Sorting classes for columns
  */
@@ -405,7 +381,6 @@ tr.even td.sorting_2 {
 tr.even td.sorting_3 {
 	background-color: #F9F9FF;
 }
-
 
 /* For the Conditional-CSS grading rows */
 /*
@@ -513,14 +488,15 @@ tr.even.gradeU td.sorting_3 {
 	background-color: #e2e2e2;
 }
 
-
 /*
  * Row highlighting example
  */
-.ex_highlight #example tbody tr.even:hover, #example tbody tr.even td.highlighted {
+.ex_highlight #example tbody tr.even:hover, #example tbody tr.even td.highlighted
+	{
 	background-color: #ECFFB3;
 }
 
-.ex_highlight #example tbody tr.odd:hover, #example tbody tr.odd td.highlighted {
+.ex_highlight #example tbody tr.odd:hover, #example tbody tr.odd td.highlighted
+	{
 	background-color: #E6FF99;
 }

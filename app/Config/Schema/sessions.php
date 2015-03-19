@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This is Sessions Schema file
  *
@@ -23,38 +24,54 @@
  * cake schema run create Sessions
  *
  */
-
 class SessionsSchema extends CakeSchema
 {
 
-	public $name = 'Sessions';
+    public $name = 'Sessions';
 
-	/**
-	 * Before callback.
-	 *
-	 * @param array $event Schema object properties
-	 * @return bool Should process continue
-	 */
-	public function before($event = array())
-	{
-		return true;
-	}
+    /**
+     * Before callback.
+     *
+     * @param array $event
+     *            Schema object properties
+     * @return bool Should process continue
+     */
+    public function before($event = array())
+    {
+        return true;
+    }
 
-	/**
-	 * After callback.
-	 *
-	 * @param array $event Schema object properties
-	 * @return void
-	 */
-	public function after($event = array())
-	{
-	}
+    /**
+     * After callback.
+     *
+     * @param array $event
+     *            Schema object properties
+     * @return void
+     */
+    public function after($event = array())
+    {}
 
-	public $cake_sessions = array(
-		'id' => array('type' => 'string', 'null' => false, 'key' => 'primary'),
-		'data' => array('type' => 'text', 'null' => true, 'default' => null),
-		'expires' => array('type' => 'integer', 'null' => true, 'default' => null),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1))
-	);
-
+    public $cake_sessions = array(
+        'id' => array(
+            'type' => 'string',
+            'null' => false,
+            'key' => 'primary'
+        ),
+        'data' => array(
+            'type' => 'text',
+            'null' => true,
+            'default' => null
+        ),
+        'expires' => array(
+            'type' => 'integer',
+            'null' => true,
+            'default' => null
+        ),
+        'indexes' => array(
+            'PRIMARY' => array(
+                'column' => 'id',
+                'unique' => 1
+            )
+        )
+    );
 }

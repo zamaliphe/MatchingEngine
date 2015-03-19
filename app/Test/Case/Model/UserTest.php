@@ -1,43 +1,44 @@
 <?php
-	App::uses('User', 'Model');
+App::uses('User', 'Model');
 
 /**
-* User Test Case
-*
-*/
-	class UserTest extends CakeTestCase {
+ * User Test Case
+ */
+class UserTest extends CakeTestCase
+{
 
-	/**
-	* Fixtures
-	*
-	* @var array
-	*/
-	public $fixtures = array(
-	'app.user',
-		'app.group',
-		'app.state',
-		'app.country'
-	);
+    /**
+     * Fixtures
+     *
+     * @var array
+     */
+    public $fixtures = array(
+        'app.user',
+        'app.group',
+        'app.state',
+        'app.country'
+    );
 
-	/**
-	* setUp method
-	*
-	* @return void
-	*/
-	public function setUp() {
-	parent::setUp();
-		$this->User = ClassRegistry::init('User');
-		}
+    /**
+     * setUp method
+     *
+     * @return void
+     */
+    public function setUp()
+    {
+        parent::setUp();
+        $this->User = ClassRegistry::init('User');
+    }
 
-	/**
-	* tearDown method
-	*
-	* @return void
-	*/
-	public function tearDown() {
-	unset($this->User);
-
-	parent::tearDown();
-	}
-
+    /**
+     * tearDown method
+     *
+     * @return void
+     */
+    public function tearDown()
+    {
+        unset($this->User);
+        
+        parent::tearDown();
+    }
 }

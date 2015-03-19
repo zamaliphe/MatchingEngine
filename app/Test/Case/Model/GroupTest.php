@@ -1,41 +1,42 @@
 <?php
-	App::uses('Group', 'Model');
+App::uses('Group', 'Model');
 
 /**
-* Group Test Case
-*
-*/
-	class GroupTest extends CakeTestCase {
+ * Group Test Case
+ */
+class GroupTest extends CakeTestCase
+{
 
-	/**
-	* Fixtures
-	*
-	* @var array
-	*/
-	public $fixtures = array(
-	'app.group',
-		'app.user'
-	);
+    /**
+     * Fixtures
+     *
+     * @var array
+     */
+    public $fixtures = array(
+        'app.group',
+        'app.user'
+    );
 
-	/**
-	* setUp method
-	*
-	* @return void
-	*/
-	public function setUp() {
-	parent::setUp();
-		$this->Group = ClassRegistry::init('Group');
-		}
+    /**
+     * setUp method
+     *
+     * @return void
+     */
+    public function setUp()
+    {
+        parent::setUp();
+        $this->Group = ClassRegistry::init('Group');
+    }
 
-	/**
-	* tearDown method
-	*
-	* @return void
-	*/
-	public function tearDown() {
-	unset($this->Group);
-
-	parent::tearDown();
-	}
-
+    /**
+     * tearDown method
+     *
+     * @return void
+     */
+    public function tearDown()
+    {
+        unset($this->Group);
+        
+        parent::tearDown();
+    }
 }

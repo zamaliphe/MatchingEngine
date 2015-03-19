@@ -3,7 +3,6 @@
  * Note you will likely have to change the path for the background image used by jQuery UI theming:
  *   ../../../../examples/examples_support/themes/smoothness
  */
-
 .ColVis {
 	position: absolute;
 	right: 0;
@@ -21,7 +20,7 @@
 	background: url('../images/button.png') no-repeat top left;
 }
 
-button.ColVis_Button::-moz-focus-inner { 
+button.ColVis_Button::-moz-focus-inner {
 	border: none !important;
 	padding: 0;
 }
@@ -84,8 +83,6 @@ button.ColVis_Restore span {
 .disabled {
 	color: #999;
 }
-
-
 
 /*
  * Styles needed for DataTables scrolling

@@ -1,192 +1,38 @@
 <?php
-App::uses('AppController', 'Controller');
-/**
-* Settings Controller
-*
- * @property Setting $Setting
- * @property PaginatorComponent $Paginator
- * @property SessionComponent $Session
-*/
+
 class SettingsController extends AppController {
 
-/**
- * Components
- *
- * @var array
- */
-	public $components = array('Paginator', 'Session');
+    var $name = 'Settings';
+    var $helpers = array('Form');
 
-/**
-* index method
-*
-* @return void
-*/
-public function index() {
-$this->Setting->recursive = 0;
-$this->set('settings', $this->Paginator->paginate());
-}
+    function beforeFilter() {
+        parent::beforeFilter();
+        $this->set("top_nav_intro", 'admin/top_title_intro/top_nave_dashboard');
+        $this->set("nave_for_layout", 'admin/top_nave/settings');
+    }
 
-/**
-* view method
-*
-* @throws NotFoundException
-* @param string $id
-* @return void
-*/
-public function view($id = null) {
-if (!$this->Setting->exists($id)) {
-throw new NotFoundException(__('Invalid setting'));
-}
-$options = array('conditions' => array('Setting.' . $this->Setting->primaryKey => $id));
-$this->set('setting', $this->Setting->find('first', $options));
-}
+    function admin_index() {
+        if (!empty($this->data)) {
 
-/**
-* add method
-*
-* @return void
-*/
-public function add() {
-if ($this->request->is('post')) {
-$this->Setting->create();
-if ($this->Setting->save($this->request->data)) {
-	$this->Session->setFlash(__('The setting has been saved.'));
-	return $this->redirect(array('action' => 'index'));
-	} else {
-	$this->Session->setFlash(__('The setting could not be saved. Please, try again.'));
-}
-}
-}
+            $this->Setting->recursive = 0;
 
-/**
-* edit method
-*
-* @throws NotFoundException
-* @param string $id
-* @return void
-*/
-public function edit($id = null) {
-if (!$this->Setting->exists($id)) {
-throw new NotFoundException(__('Invalid setting'));
-}
-if ($this->request->is(array('post', 'put'))) {
-if ($this->Setting->save($this->request->data)) {
-	$this->Session->setFlash(__('The setting has been saved.'));
-	return $this->redirect(array('action' => 'index'));
-	} else {
-	$this->Session->setFlash(__('The setting could not be saved. Please, try again.'));
-}
-} else {
-$options = array('conditions' => array('Setting.' . $this->Setting->primaryKey => $id));
-$this->request->data = $this->Setting->find('first', $options);
-}
-}
+            foreach ($this->data["Setting"] as $setting) {
+                $result = $this->Setting->save($setting);
 
-/**
-* delete method
-*
-* @throws NotFoundException
-* @param string $id
-* @return void
-*/
-public function delete($id = null) {
-$this->Setting->id = $id;
-if (!$this->Setting->exists()) {
-throw new NotFoundException(__('Invalid setting'));
-}
-$this->request->allowMethod('post', 'delete');
-if ($this->Setting->delete()) {
-	$this->Session->setFlash(__('The setting has been deleted.'));
-	} else {
-	$this->Session->setFlash(__('The setting could not be deleted. Please, try again.'));
-	}
-	return $this->redirect(array('action' => 'index'));
-}
+                if (!$result)
+                    break;
+            }
+            //debug($this->data);
+            //die('Error not ok');
+            if ($result) {
+                $this->flashSuccess('The user has been saved');
+            } else {
+                $this->flashWarning('The user could not be saved. Please, try again.');
+            }
+        }
 
-/**
-* admin_index method
-*
-* @return void
-*/
-public function admin_index() {
-$this->Setting->recursive = 0;
-$this->set('settings', $this->Paginator->paginate());
-}
+        $settings = $this->Setting->find('all', array('order' => 'order', 'conditions' => array('Setting.hidden' => 0)));
+        $this->set(compact('settings'));
+    }
 
-/**
-* admin_view method
-*
-* @throws NotFoundException
-* @param string $id
-* @return void
-*/
-public function admin_view($id = null) {
-if (!$this->Setting->exists($id)) {
-throw new NotFoundException(__('Invalid setting'));
-}
-$options = array('conditions' => array('Setting.' . $this->Setting->primaryKey => $id));
-$this->set('setting', $this->Setting->find('first', $options));
-}
-
-/**
-* admin_add method
-*
-* @return void
-*/
-public function admin_add() {
-if ($this->request->is('post')) {
-$this->Setting->create();
-if ($this->Setting->save($this->request->data)) {
-	$this->Session->setFlash(__('The setting has been saved.'));
-	return $this->redirect(array('action' => 'index'));
-	} else {
-	$this->Session->setFlash(__('The setting could not be saved. Please, try again.'));
-}
-}
-}
-
-/**
-* admin_edit method
-*
-* @throws NotFoundException
-* @param string $id
-* @return void
-*/
-public function admin_edit($id = null) {
-if (!$this->Setting->exists($id)) {
-throw new NotFoundException(__('Invalid setting'));
-}
-if ($this->request->is(array('post', 'put'))) {
-if ($this->Setting->save($this->request->data)) {
-	$this->Session->setFlash(__('The setting has been saved.'));
-	return $this->redirect(array('action' => 'index'));
-	} else {
-	$this->Session->setFlash(__('The setting could not be saved. Please, try again.'));
-}
-} else {
-$options = array('conditions' => array('Setting.' . $this->Setting->primaryKey => $id));
-$this->request->data = $this->Setting->find('first', $options);
-}
-}
-
-/**
-* admin_delete method
-*
-* @throws NotFoundException
-* @param string $id
-* @return void
-*/
-public function admin_delete($id = null) {
-$this->Setting->id = $id;
-if (!$this->Setting->exists()) {
-throw new NotFoundException(__('Invalid setting'));
-}
-$this->request->allowMethod('post', 'delete');
-if ($this->Setting->delete()) {
-	$this->Session->setFlash(__('The setting has been deleted.'));
-	} else {
-	$this->Session->setFlash(__('The setting could not be deleted. Please, try again.'));
-	}
-	return $this->redirect(array('action' => 'index'));
-}
 }
