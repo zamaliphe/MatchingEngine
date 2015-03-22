@@ -1,12 +1,12 @@
 <div class="wrapper">
 	<div class="widget chartWrapper">
 		<div class="title">
-			<?php echo $html->image('icons/dark/stats.png', array("class" => 'titleIcon')); ?>
+			<?php echo $this->Html->image('icons/dark/stats.png', array("class" => 'titleIcon')); ?>
 			<h6><?php __($title_for_layout); ?></h6>
 		</div>
 		<div class="body">
 			<div class="content-box sysinfo-index">
-				<?php echo $form->create('Language'); ?>
+				<?php echo $this->Form->create('Language'); ?>
 				<div class="content-box-content gird-table">
 					<div id="sysinfo-content">
 						<table cellpadding="3" cellspacing="3" width="100%">

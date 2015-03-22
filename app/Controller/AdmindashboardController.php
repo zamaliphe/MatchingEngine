@@ -75,7 +75,8 @@ class AdmindashboardController extends AppController
 
     public function admin_logs($logfile = null)
     {
-        App::import('Core', 'File');
+        App::uses('Folder', 'Utility');
+        App::uses('File', 'Utility');
         $this->set('title_for_layout', __('System Logs', true));
         if ($logfile == '') {
             $logsobj = new Folder(LOGS, false, false);

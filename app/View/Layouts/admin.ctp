@@ -26,14 +26,14 @@
 
 				<?php echo $this->Session->flash(); ?>
 
-				<?php echo $this->element('admin/data_header'); ?>
-				<?php echo $this->element('admin/data_content'); ?>
-				<?php echo $this->element('admin/data_footer'); ?>
+				<?php //echo $this->element('admin/data_header'); ?>
+				<?php //echo $this->element('admin/data_content'); ?>
+				<?php //echo $this->element('admin/data_footer'); ?>
 
 
-				<?php echo $this->element('admin/data_header'); ?>
+				<?php //echo $this->element('admin/data_header'); ?>
 				<?php echo $this->fetch('content'); ?>
-				<?php echo $this->element('admin/data_footer'); ?>
+				<?php //echo $this->element('admin/data_footer'); ?>
 
 			</div>
 
@@ -49,7 +49,7 @@
 
 <div id="footer-debug">
 	<h5>SQL Debug</h5>
-	<?php echo $this->element('sql_dump'); ?>
+	<?php //echo $this->element('sql_dump'); ?>
 </div>
 
 </body>
