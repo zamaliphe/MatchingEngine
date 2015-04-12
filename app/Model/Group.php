@@ -1,7 +1,7 @@
 <?php
 App::uses('AppModel', 'Model');
 
-/**
+/**  
  * Group Model
  *
  * @property Group $ParentGroup

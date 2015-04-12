@@ -1,39 +1,23 @@
-<div class="users form">
-	<?php echo $this->Form->create('User'); ?>
-	<fieldset>
-		<legend><?php echo __('Admin Edit User'); ?></legend>
-			<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('email');
-		echo $this->Form->input('username');
-		echo $this->Form->input('password');
-		echo $this->Form->input('is_admin');
-		echo $this->Form->input('group_id');
-		echo $this->Form->input('profile_imageid');
-		echo $this->Form->input('first_name');
-		echo $this->Form->input('last_name');
-		echo $this->Form->input('city');
-		echo $this->Form->input('state_id');
-		echo $this->Form->input('country_id');
-		echo $this->Form->input('zip');
-		echo $this->Form->input('last_login_date_time');
-		echo $this->Form->input('last_login_ip');
-		echo $this->Form->input('status');
-	?>
-	</fieldset>
-	<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<div class="users form">		
+    <?php echo $this->Form->create('User', array("class" => "main", 'inputDefaults' => array('label' => false, 'div' => false))); ?>
+    <?php echo $this->element('admin/forms/form_header', array("form_label" => "Edit User")); ?>
 
-					<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('User.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?></li>
-				<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?></li>
-				<li><?php echo $this->Html->link(__('List Groups'), array('controller' => 'groups', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Group'), array('controller' => 'groups', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List States'), array('controller' => 'states', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New State'), array('controller' => 'states', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Countries'), array('controller' => 'countries', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Country'), array('controller' => 'countries', 'action' => 'add')); ?> </li>
-	</ul>
+    <?php echo $this->Form->input('id'); ?>
+    <?php echo $this->element('admin/forms/input_row', array("input_label" => "User Name", "input_name" => "username")); ?>
+    <?php echo $this->element('admin/forms/input_row', array("input_label" => "Password", "input_name" => "password")); ?>
+    <?php echo $this->element('admin/forms/input_row', array("input_label" => "Email", "input_name" => "email")); ?>
+    <?php echo $this->element('admin/forms/input_row', array("input_label" => "First Name", "input_name" => "first_name")); ?>
+    <?php echo $this->element('admin/forms/input_row', array("input_label" => "Last Name", "input_name" => "last_name")); ?>
+    <?php echo $this->element('admin/forms/input_row', array("input_label" => "Address", "input_name" => "address")); ?>
+    <?php echo $this->element('admin/forms/input_row', array("input_label" => "State", "input_name" => "state")); ?>
+    <?php echo $this->element('admin/forms/input_row', array("input_label" => "city", "input_name" => "city")); ?>
+    <?php echo $this->element('admin/forms/input_row', array("input_label" => "Postal Code", "input_name" => "postalcode")); ?>
+    <?php echo $this->element('admin/forms/input_row', array("input_label" => "Phone", "input_name" => "phone")); ?>
+    <?php echo $this->element('admin/forms/input_row', array("input_label" => "Fax", "input_name" => "fax")); ?>
+    <?php echo $this->element('admin/forms/input_row', array("input_label" => "Country", "input_name" => "country_id")); ?>
+
+    <?php echo $this->element('admin/forms/input_row', array("input_label" => "Profile_img", "input_name" => "profile_img")); ?>
+    
+    <?php echo $this->element('admin/forms/form_footer', array()); ?>
+
 </div>

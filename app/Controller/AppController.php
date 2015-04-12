@@ -34,7 +34,7 @@ class AppController extends Controller {
 
     var $helpers = array(
         'Cache',
-        'myHtml',
+//        'myHtml',
         'Html',
         'Form',
         'Session',
@@ -194,6 +194,7 @@ class AppController extends Controller {
 
 
     function beforeFilter() {
+        parent::beforeFilter();
         $is_home_page = false;
         $this->_set_default_params();
         $this->_add_Breadcrumbs("Dashboard", array("controller" => "admindashboard", "action" => "index"));
@@ -241,6 +242,7 @@ class AppController extends Controller {
 //            debug($loged_user);
             $login_array = array(
                 'admin_login',
+                'admin_printpassword',
                 'admin_logout',
             );
 
@@ -256,6 +258,7 @@ class AppController extends Controller {
                 }
                 $this->Auth->allow("admin_login");
                 $this->Auth->allow("admin_logout");
+                $this->Auth->allow("admin_printpassword");
                 //               $this->Auth->allow("*");
                 $this->is_admin = true;
             }
@@ -293,6 +296,7 @@ class AppController extends Controller {
             $this->Auth->allow('login');
             $this->Auth->allow('logout');
             $this->Auth->allow('paypal_ipn');
+            $this->Auth->allow('printpassword');
             
             
              
@@ -359,30 +363,11 @@ class AppController extends Controller {
 
         $theme_params = array();
         $theme = array();
-        $this->loadModel("SiteTheme");
 
         $this->loadModel('Setting');
         $this->Setting->set_all();
 
-        $this->site_id = 1;
-        if (isset($_GET["site_theme"]) && !empty($_GET["site_theme"])) {
-            $this->theme_name = $_GET["site_theme"];
-            $site_theme = $this->SiteTheme->find('first', array("conditions" => array("SiteTheme.name" => $this->theme_name)));
-            Configure::write('App.baseUrl', env('SCRIPT_NAME') . "?site_theme=" . $this->theme_name);
 
-            $theme = !empty($them_prev["SiteTheme"]) ? $them_prev["SiteTheme"] : $theme;
-        }
-
-        if (!empty($theme)) {
-            $this->theme_name = $theme["name"];
-            $theme_params = json_decode($theme["params"], true);
-            $theme_params = is_array($theme_params) ? $theme_params : array();
-            $this->theme_params = array_merge($this->theme_params_default, $theme_params);
-        }
-
-        if ($this->theme_name == 'default') {
-            $this->theme_params = $this->theme_params_default;
-        }
         $this->language = Configure::read('Site.locale');
 
         Configure::write('facebook_login_api_key', $this->Setting->item("fb_apikey"));

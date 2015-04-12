@@ -1,31 +1,23 @@
 <div class="navbar navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container-fluid">
-			<a class="brand" href="dashboard.html"><i class="icon-home icon-white"></i> Gebo Admin</a>
-			<ul class="nav user_menu pull-right">
-				<li class="hidden-phone hidden-tablet">
-					<div class="nb_boxes clearfix">
-						<a data-toggle="modal" data-backdrop="static" href="#myMail" class="label ttip_b"
-						   title="New messages">25 <i class="splashy-mail_light"></i></a>
-						<a data-toggle="modal" data-backdrop="static" href="#myTasks" class="label ttip_b"
-						   title="New tasks">10 <i class="splashy-calendar_week"></i></a>
-					</div>
-				</li>
-				<li class="divider-vertical hidden-phone hidden-tablet"></li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Johny Smith <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="user_profile.html">My Profile</a></li>
-						<li><a href="javascrip:void(0)">Another action</a></li>
-						<li class="divider"></li>
-						<li><a href="login.html">Log Out</a></li>
-					</ul>
-				</li>
-			</ul>
-			<a data-target=".nav-collapse" data-toggle="collapse" class="btn_menu">
-				<span class="icon-align-justify icon-white"></span>
-			</a>
-
-		</div>
-	</div>
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <?php echo $this->HTML->link('<i class="icon-home icon-white"></i> Gebo Admin', array('controller' => 'admindashboard', 'action' => 'index'), array('escape' => false, "class" => "brand")); ?>
+            <ul class="nav user_menu pull-right">
+                <li class="hidden-phone hidden-tablet">
+                </li>
+                <li class="divider-vertical hidden-phone hidden-tablet"></li>
+                <li class="dropdown">
+                    <?php echo $this->HTML->link($User['username'].' <b class="caret"></b>', '#', array('escape' => false, "data-toggle"=>"dropdown","class" => "dropdown-toggle")); ?>
+                    <ul class="dropdown-menu">
+                        <li><?php echo $this->HTML->link('My Profile', array('controller' => 'users', 'action' => 'my_profile'), array('escape' => false, "class" => "")); ?></li>
+                        <li class="divider"></li>
+                        <li><?php echo $this->HTML->link('Log Out', array('controller' => 'users', 'action' => 'logout'), array('escape' => false, "class" => "")); ?></li>
+                    </ul>
+                </li>
+            </ul>
+            <a data-target=".nav-collapse" data-toggle="collapse" class="btn_menu">
+                <span class="icon-align-justify icon-white"></span>
+            </a>
+        </div>
+    </div>
 </div>

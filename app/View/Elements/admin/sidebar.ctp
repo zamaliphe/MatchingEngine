@@ -9,7 +9,6 @@
                         <div class="accordion-group">
                             <div class="accordion-heading">
                                 <?php echo $this->HTML->link('<i class="icon-folder-close"></i> Dashboard', array('controller' => 'admindashboard', 'action' => 'index'), array('escape' => false, "class" => "accordion-toggle")); ?>
-
                             </div>
                             <div class="accordion-body collapse" id="collapseOne">
                                 <div class="accordion-inner">
