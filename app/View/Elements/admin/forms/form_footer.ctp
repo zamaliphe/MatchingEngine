@@ -5,4 +5,5 @@
     <div class="clear"></div>
 </div>
 </div>
-</fieldset> 
+</div>
+</div>
