@@ -26,7 +26,7 @@ echo $this->Html->css(array(
 
 ?>
 
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans"/>
+<!--<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans"/>-->
 
 <!--[if lte IE 8]>
 

@@ -23,11 +23,11 @@
     </div>
     <div class="btm_b clearfix">
         <button class="btn btn-inverse pull-right" type="submit">Sign In</button>
-        <span class="link_reg"><a href="#reg_form">Not registered? Sign up here</a></span>
+         <span class="linkform"><a href="#pass_form">Forgot password?</a></span>
+        <span class="linkform" style="display:none">Never mind, <a href="#login_form">send me back to the sign-in screen</a></span>
     </div>  
-
+   
     <?php echo $this->Form->end() ?>
-
 
     <?php echo $this->Form->create('User', array("class" => "main", "id" => "pass_form", "style" => "display:none", 'inputDefaults' => array('label' => false, 'div' => false))); ?>
     <div class="top_b">Can't sign in?</div>    
@@ -67,7 +67,6 @@
         </div>
     </div>
     <div class="cnt_b">
-
         <div class="formRow">
             <div class="input-prepend">
                 <span class="add-on"><i class="icon-user"></i></span><input type="text" placeholder="Username" />
@@ -91,9 +90,3 @@
     </div>  
     <?php echo $this->Form->end() ?>
 </div>
-
-<div class="links_b links_btm clearfix">
-    <span class="linkform"><a href="#pass_form">Forgot password?</a></span>
-    <span class="linkform" style="display:none">Never mind, <a href="#login_form">send me back to the sign-in screen</a></span>
-</div>  
-

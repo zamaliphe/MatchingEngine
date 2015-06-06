@@ -203,6 +203,10 @@ class AppController extends Controller {
             'engine' => 'File',
         ));
 
+        $this->layout = 'adminLogin';
+        $this->layout = 'admin';
+        
+        
 //        $this->AutoLogin->settings = array(
 ////		// Model settings
 ////		'model' => 'Member',

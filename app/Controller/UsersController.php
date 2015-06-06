@@ -43,7 +43,7 @@ class UsersController extends AppController {
     function login($login_type = 'login') {
 
         $this->set('title_for_layout', __('Login', true));
-        $this->layout = "users_login";
+        $this->layout = "adminLogin";
         //if the user is allready loged in no need to re Do
 //        debug($this->Auth->sessionKey);
 //        debug($this->Auth->user());
@@ -63,6 +63,9 @@ class UsersController extends AppController {
         $login_type = '_' . $login_type;
 
         $this->$login_type();
+        
+        $this->render("admin_login");
+        
     }
 
     function logout() {
@@ -161,6 +164,10 @@ class UsersController extends AppController {
         $this->set('title_for_layout', __('Users', true));
         $this->layout = "front";
         $this->set('users', $this->Paginator->paginate());
+    }
+
+    public function dashboard() {
+        
     }
 
     /**
@@ -295,7 +302,7 @@ class UsersController extends AppController {
         // die();
         if (!empty($user)) {
             $this->auto_login();
-            $this->redirect(array('controller' => 'pages', 'action' => 'index'));
+            $this->redirect(array('controller' => 'users', 'action' => 'dashboard'));
         }
         if (!empty($this->request->data['User'])) {
 //           $pass =  $this->Auth->password(($this->request->data['User']['password']));
@@ -323,7 +330,7 @@ class UsersController extends AppController {
             }
             if ($this->Auth->loggedIn()) {
                 $this->auto_login();
-                $this->redirect(array('controller' => 'pages', 'action' => 'index'));
+                $this->redirect(array('controller' => 'users', 'action' => 'dashboard'));
             } else {
 //                debug($this->request->data);
 //                debug($user);
@@ -746,12 +753,10 @@ class UsersController extends AppController {
         die();
     }
 
-    
-    function admin_printpassword()
-    {
-        
-       echo $this->Auth->password("123456");
-       die("\n\n\n ok");
+    function admin_printpassword() {
+
+        echo $this->Auth->password("123456");
+        die("\n\n\n ok");
     }
-    
+
 }
